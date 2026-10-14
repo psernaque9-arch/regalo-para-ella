@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti, Olenka ❤️</title>
+    <style>
+        body {
+            font-family: Georgia, serif;
+            background: #fdeef4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #5c2a3a
+        }
+
+        .portada {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px
+        }
+
+        .mini {
+            letter-spacing: 3px;
+            font-size: 12px;
+            color: #b06a83
+        }
+
+        h1 {
+            font-size: 42px;
+            margin: 10px 0
+        }
+
+        .de {
+            font-size: 16px
+        }
+
+        .frase-portada {
+            font-style: italic;
+            max-width: 300px;
+            margin: 20px auto;
+            color: #8a4a61
+        }
+
+        .corazon {
+            font-size: 50px;
+            cursor: pointer;
+            animation: latir 1.2s infinite;
+            background: none;
+            border: none
+        }
+
+        @keyframes latir {
+
+            0%,
+            100% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.2)
+            }
+        }
+
+        #contenido {
+            display: none;
+            padding: 20px;
+            max-width: 500px;
+            margin: auto
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08)
+        }
+
+        button {
+            background: #e75480;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px
+        }
+
+        .oculto {
+            display: none;
+            margin-top: 15px;
+            background: #fff0f5;
+            padding: 15px;
+            border-radius: 15px
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            border: 1px solid #f2b8c6;
+            text-align: center
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+            margin-bottom: 10px
+        }
+
+        #final {
+            display: none
+        }
+
+        .si {
+            background: #e75480
+        }
+
+        .no {
+            background: #aaa
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="portada" id="portada">
+        <p class="mini">TIENES UN REGALO</p>
+        <p class="mini">PARA:</p>
+        <h1>Olenka</h1>
+        <p class="de">De Piero ❤️</p>
+        <p class="frase-portada">"Espero que te guste. Lo hice con todo mi corazón, solo para ti."</p>
+        <p style="font-size:13px;color:#b06a83">Toca el corazón para descubrir tu regalo</p>
+        <button class="corazon" onclick="abrir()">🤍</button>
+    </div>
+
+    <div id="contenido">
+        <div class="card">
+            <h2>Lo que siento por ti</h2>
+            <button onclick="mostrar('siento')">Abrir ❤️</button>
+            <div id="siento" class="oculto">Olenka, me gusta cómo me haces sentir cuando estoy contigo, cada vez que
+                hablamos me quedo pensando en ti.
+                No sé si es mucho o poco, solo sé que lo que siento por ti es bonito y
+                sincero.
+                No hice esta página por hacerla, la hice porque de verdad me importas y quiero que lo nuestro
+                sea especial. </div>
+        </div>
+
+        <div class="card">
+            <h2>Mi Flor Favorita</h2>
+            <button onclick="mostrar('fotos')">Ver tus fotos ❤️</button>
+            <div id="fotos" class="oculto" style="background:white">
+                <img src="img/olenka1.jpg">
+                <img src="img/olenka2.jpeg">
+                <img src="img/olenka3.jpeg">
+                <p>Gracias por ser tú. Por tu risa, por tu forma de ser, por hacer que días normales se sientan
+                    especiales. Esto es solo un detalle, pero lo que siento por ti es de verdad.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Último paso 🔒</h2>
+            <p>Responde bien para desbloquear algo importante</p>
+            <p>1. ¿Que comimos la primera vez que nos conocimos?</p>
+            <input id="r1" placeholder="Escribe aquí">
+            <p>2. ¿Como se llama la mujer mas hermosa?</p>
+            <input id="r2" placeholder="Escribe aquí">
+            <p>3. ¿Donde fuimos por ultima vez?</p>
+            <input id="r3" placeholder="Escribe aquí">
+            <br><br>
+            <button onclick="verificar()">Desbloquear</button>
+            <p id="msg"></p>
+        </div>
+
+        <div class="card" id="final">
+            <h1>¿Quieres ser mi enamorada?</h1>
+            <button class="si"
+                onclick="window.open('https://wa.me/51936823988?text=Sí,%20quiero%20ser%20tu%20enamorada%20❤️','_blank')">Sí
+                ❤️</button>
+            <button class="no" id="btnNo" onmouseover="mover()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function abrir() {
+            document.getElementById('portada').style.display = 'none';
+            document.getElementById('contenido').style.display = 'block';
+        }
+        function mostrar(id) {
+            var x = document.getElementById(id);
+            x.style.display = x.style.display == 'block' ? 'none' : 'block';
+        }
+        function verificar() {
+            var r1 = document.getElementById('r1').value.toLowerCase().trim();
+            var r2 = document.getElementById('r2').value.toLowerCase().trim();
+            var r3 = document.getElementById('r3').value.toLowerCase().trim();
+            if (r1 == "pizza" && r2 == "olenka" && r3 == "cine") {
+                document.getElementById('final').style.display = 'block';
+                document.getElementById('msg').innerText = "¡Correcto! Baja un poquito ❤️";
+            } else {
+                document.getElementById('msg').innerText = "Casi... inténtalo de nuevo ❤️";
+            }
+        }
+        function mover() {
+            var b = document.getElementById('btnNo');
+            b.style.position = 'absolute';
+            b.style.left = Math.random() * 70 + '%';
+            b.style.top = Math.random() * 70 + '%';
+        }
+    </script>
+</body>
+
+</html>
